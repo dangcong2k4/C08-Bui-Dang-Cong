@@ -1,0 +1,78 @@
+.col-m-1 {width: 8.33333%;}
+.col-m-2 {width: 16.66667%;}
+.col-m-3 {width: 25%;}
+.col-m-4 {width: 33.33333%;}
+.col-m-5 {width: 41.66667%;}
+.col-m-6 {width: 50%;}
+.col-m-7 {width: 58.33333%;}
+.col-m-8 {width: 66.66667%;}
+.col-m-9 {width: 75%;}
+.col-m-10 {width: 83.33333%;}
+.col-m-11 {width: 91.66667%;}
+.col-m-12 {width: 100%;}
+.row{
+    display: flex;
+}
+.head{
+    background-color: #333333;
+    height: 70px;
+    margin:5px;
+    position: sticky;
+    top: 5px;
+}
+.head img{
+    width: 150px;
+    margin-left: 550px;
+    border-radius: 30px
+}
+.left{
+    background-color:#FFFAFA;
+    height: auto;
+    margin:5px;
+}
+.right{
+    background-color: white;
+    height: auto;
+    margin:5px;
+}
+.below{
+    color: black;
+    background-color: #CDCDCD;
+    height: 30px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right iframe{
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.right a{
+    font-size: 10px;
+}
+.theMiddle{
+    background-color: #CDCDCD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    margin:5px;
+    text-decoration: none
+}
+.left li{
+    cursor: pointer;
+    list-style: none;
+}
+.size{
+    font-size: 10px;
+}
+.sizePhoto{
+    height: 100px;
+    width: 210px;
+}
+.avatarSize{
+    height:10px;
+    width:10px;
+}

@@ -1,0 +1,32 @@
+body{
+    font-family: Arial;
+}
+
+.title{
+    text-decoration: none;
+    data-toggle:tooltip;
+    color: black;
+    margin-left: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.below1{
+    color: black;
+}
+.check{
+    background-color: #b3b7bb ;
+    height: 30px
+}
+.sizePhoto{
+    height: 55px;
+    width: 135px;
+
+}

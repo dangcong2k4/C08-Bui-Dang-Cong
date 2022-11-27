@@ -1,0 +1,113 @@
+.col-m-1 {width: 8.33333%;}
+.col-m-2 {width: 16.66667%;}
+.col-m-3 {width: 25%;}
+.col-m-4 {width: 33.33333%;}
+.col-m-5 {width: 41.66667%;}
+.col-m-6 {width: 50%;}
+.col-m-7 {width: 58.33333%;}
+.col-m-8 {width: 66.66667%;}
+.col-m-9 {width: 75%;}
+.col-m-10 {width: 83.33333%;}
+.col-m-11 {width: 91.66667%;}
+.col-m-12 {width: 100%;}
+.row{
+    /*cho phép thẻ div (col) nổi lên trên*/
+    display: flex;
+    /*Các thẻ div (col)  không đủ chỗ chứa trên 1 hàng thì rớt xuống*/
+    /*flex-wrap: wrap;*/
+}
+.head{
+    color: white;
+    background-color: black;
+    height: 30px
+}
+.left{
+    background-color: darkgray;
+    height: 340px
+}
+
+.right{
+    background-color: darkgrey;
+    justify-content: center;/*căn giữa theo chiều ngang */
+    display: flex;
+    height: 340px
+}
+.right li {
+    cursor: pointer;/*đưa con trỏ vào thì sẽ thành nút ấn */
+    border-radius: 5px;/*làm tròn một góc vuông*/
+    justify-content: center;/*căn giữa theo chiều ngang */
+    align-items: center;/*căn giữa theo chiều dọc */
+    display: flex;/*căn giữa ngang dọc trong 1 ô vuông*/
+    list-style: none;
+    border: #333333 2px solid;/*tạo đường viền*/
+    height: 40px;
+    width: 70px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.content{
+    background-color: white;
+    height: 340px
+}
+.below{
+    color: white;
+    background-color: #444444;
+    height: 30px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu{
+    height: 30px;
+    padding:0;
+    margin:0;
+    background-color: #333333;
+    border: 1px solid #CDCDCD;
+}
+
+#menu ul, #menu li{
+    padding:0;
+    margin:0;
+}
+
+#menu li{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+#menu li a{
+    width:60px;
+    height: 30px;
+    display: block;
+    text-decoration:none;
+    text-align: center;
+    line-height: 30px;
+    background-color: #333333;
+    color: white;
+}
+
+#menu ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover{
+    background-color: black;
+}
+
+#menu ul ul{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
