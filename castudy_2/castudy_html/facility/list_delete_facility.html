@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="../../../bootstrap-5.1.3-examples/css/bootstrap.min.css">
+    <script src="../../../bootstrap-5.1.3-examples/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="furama_styles.css">
+</head>
+<body>
+<h1 class="text-center">Facility</h1>
+<table class="table table-striped">
+    <thead>
+    <tr class="fontSize1">
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Area</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Max people</th>
+        <th scope="col">Standard room</th>
+        <th scope="col">Description other convenience</th>
+        <th scope="col">Pool area</th>
+        <th scope="col">Number of floors</th>
+        <th scope="col">Facility free</th>
+        <th scope="col">Rent type id</th>
+        <th scope="col">Facility type id</th>
+        <th scope="col">delete facility</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="fontSize1">
+        <th scope="row">1</th>
+        <td>Villa</td>
+        <td>25000</td>
+        <td>1000000</td>
+        <td>10</td>
+        <td>vip</td>
+        <td>Có hồ bơi</td>
+        <td>500</td>
+        <td>4</td>
+        <td>nul</td>
+        <td>3</td>
+        <td>1</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                delete
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            do you want to delete facility!!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+                            <button type="button" class="btn btn-primary">yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr class="fontSize1">
+        <th scope="row">2</th>
+        <td>house</td>
+        <td>25000</td>
+        <td>1000000</td>
+        <td>12</td>
+        <td>vip</td>
+        <td>Có view đẹp</td>
+        <td>500</td>
+        <td>5</td>
+        <td>xe</td>
+        <td>3</td>
+        <td>1</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                delete
+            </button>
+        </td>
+    </tr>
+    <tr class="fontSize1">
+        <th scope="row">3</th>
+        <td>room</td>
+        <td>25000</td>
+        <td>1000000</td>
+        <td>12</td>
+        <td>vip</td>
+        <td>Có view đẹp</td>
+        <td>500</td>
+        <td>5</td>
+        <td>xe</td>
+        <td>3</td>
+        <td>1</td>
+        <td>
+            <a ><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                delete
+            </button></a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
