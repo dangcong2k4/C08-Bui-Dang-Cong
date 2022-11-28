@@ -3,47 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="facility_css.css">
+    <link rel="stylesheet" href="customer_style.css">
 
 </head>
 <body>
-<h1 class="text-center">Facility</h1>
-<table class="table table-striped">
+<h1 class="text-center">Danh sách khách hàng</h1>
+<table class="table table-dark table-striped ">
     <thead>
     <tr class="fontSize1">
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Area</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Max people</th>
-        <th scope="col">Standard room</th>
-        <th scope="col">Description other convenience</th>
-        <th scope="col">Pool area</th>
-        <th scope="col">Number of floors</th>
-        <th scope="col">Facility free</th>
-        <th scope="col">Rent type id</th>
-        <th scope="col">Facility type id</th>
-        <th scope="col">delete facility</th>
+        <th scope="col">STT</th>
+        <th scope="col">Họ tên</th>
+        <th scope="col">Ngày sinh</th>
+        <th scope="col">Giới tính</th>
+        <th scope="col">Thẻ căn cước</th>
+        <th scope="col">Số điện thoại</th>
+        <th scope="col">email</th>
+        <th scope="col">Địa chỉ</th>
+        <th scope="col">Loại khách hàng</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
     <tr class="fontSize1">
         <th scope="row">1</th>
-        <td>Villa</td>
-        <td>25000</td>
-        <td>1000000</td>
-        <td>10</td>
-        <td>vip</td>
-        <td>Có hồ bơi</td>
-        <td>500</td>
-        <td>4</td>
-        <td>nul</td>
-        <td>3</td>
-        <td>1</td>
+        <td>Nguyễn Thị Hào</td>
+        <td>1970-11-07</td>
+        <td>0</td>
+        <td>643431213</td>
+        <td>0945423362</td>
+        <td>thihao07@gmail.com</td>
+        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
+        <td>Bạch kim</td>
         <td>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 delete
@@ -53,10 +47,11 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            do you want to delete facility!!
+                        <div class="modal-body text-dark">
+                           <h4> do you want to delete customer!!</h4>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
@@ -69,17 +64,14 @@
     </tr>
     <tr class="fontSize1">
         <th scope="row">2</th>
-        <td>house</td>
-        <td>25000</td>
-        <td>1000000</td>
-        <td>12</td>
-        <td>vip</td>
-        <td>Có view đẹp</td>
-        <td>500</td>
-        <td>5</td>
-        <td>xe</td>
-        <td>3</td>
+        <td>Phạm Xuân Diệu</td>
+        <td>1992-08-08</td>
         <td>1</td>
+        <td>865342123</td>
+        <td>0954333333</td>
+        <td>xuandieu92@gmail.com</td>
+        <td>K77/22 Thái Phiên, Quảng Trị</td>
+        <td>Vàng</td>
         <td>
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -89,24 +81,22 @@
     </tr>
     <tr class="fontSize1">
         <th scope="row">3</th>
-        <td>room</td>
-        <td>25000</td>
-        <td>1000000</td>
-        <td>12</td>
-        <td>vip</td>
-        <td>Có view đẹp</td>
-        <td>500</td>
-        <td>5</td>
-        <td>xe</td>
-        <td>3</td>
+        <td>Trương Đình Nghệ</td>
+        <td>1990-02-27</td>
         <td>1</td>
+        <td>488645199</td>
+        <td>0373213122</td>
+        <td>nghenhan2702@gmail.com</td>
+        <td>K323/12 Ông Ích Khiêm, Vinh</td>
+        <td>Kim cương</td>
         <td>
-            <a ><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                delete
-            </button></a>
 
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                delete
+            </button>
         </td>
     </tr>
+
     </tbody>
 </table>
 </body>
