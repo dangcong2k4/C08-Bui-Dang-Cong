@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Ứng dụng Product Discount Calculator</title>
   </head>
   <body>
   <form action="/product" method="post">
