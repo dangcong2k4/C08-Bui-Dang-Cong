@@ -49,7 +49,7 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("userList", userList);
         request.setAttribute("countrySave",country);
         try {
-            request.getRequestDispatcher("view/search.jsp").forward(request,response);
+            request.getRequestDispatcher("view/list.jsp").forward(request,response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
