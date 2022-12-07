@@ -38,9 +38,21 @@
                 <label>Ngày sinh:</label>
                 <input type="text" class="form-control inputSize" name="date_of_birth"  value="${customer.getDateOfBirth()}">
             </div>
-            <div class="form-group distance">
-                <label>giới tính:</label>
-                <input type="text" class="form-control inputSize" name="gender" value="${customer.getGender()}" >
+            <div class="distance">
+                <label class="form-label">Giới tính</label>
+                <br>
+                <div class="form-check form-check-inline col-md-3">
+                    <label>
+                        <input type="radio" class="form-check-input"  value="true" name="gender" checked>
+                    </label>
+                    <label class="form-check-label">Nam</label>
+                </div>
+                <div class="form-check form-check-inline col-md-3">
+                    <label>
+                        <input type="radio" class="form-check-input" value="false" name="gender">
+                    </label>
+                    <label class="form-check-label">Nữ</label>
+                </div>
             </div>
             <div class="form-group distance">
                 <label>Thẻ căn cước :</label>
@@ -60,9 +72,15 @@
                 <label>Địa chỉ</label>
                 <input type="text" class="form-control inputSize" name="address" value="${customer.getAddress()}" >
             </div>
-            <div class="form-group distance">
-                <label>Loại kách hàng</label>
-                <input type="text" class="form-control inputSize" name="customer_type_id" value="${customer.getCustomerType()}" >
+            <div class="distance">
+                <label class="form-label">Customer Type</label>
+                <select name="customer_type_id" class="form-select">
+                    <option value="1">1.Diamond</option>
+                    <option value="2">2.Platinium</option>
+                    <option value="3">3.Gold</option>
+                    <option value="4">4.Silver</option>
+                    <option value="5">5.Member</option>
+                </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Chỉnh sửa</button>

@@ -36,27 +36,26 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
         <div class="container-fluid" style="background-color: #046056   ">
-            <a class="navbar-brand" href="/index.jsp">Home</a>
+            <a class="navbar-brand" href="/index.jsp">Trang chủ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Employee</a>
+                        <a class="nav-link active" aria-current="page" href="">Nhân viên</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/customer">Customer</a>
+                        <a class="nav-link active" href="/customer">Khách hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="http://localhost:63342/Module_3/castudy_2/castudy_html/facility/list_delete_facility.html?_ijt=u0klco0i4b6ld148jhbblcp1mk">Service</a>
+                        <a class="nav-link active" href="/facility">Dịch vụ</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="http://localhost:63342/Module_3/castudy_2/castudy_html/contract/list_contract.html?_ijt=8oo66bnupv6j2jlhq5d4lfihvb">Contract</a>
+                        <a class="nav-link active" href="">Hợp đồng</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>

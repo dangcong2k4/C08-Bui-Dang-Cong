@@ -26,7 +26,7 @@ public class CustomerSevice implements ICustomerSevice {
 
     @Override
     public List<Customer> search(String name, String address) {
-        return null;
+        return customerRepository.search(name,address);
     }
 
     @Override

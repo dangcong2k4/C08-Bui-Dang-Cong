@@ -26,9 +26,9 @@
 <button  type="button" class="btn btn-primary" data-bs-toggle="modal">
     <a href="/customer?action=create" style="color: white;text-decoration: none">Thêm mới Khách hàng</a>
 </button>
-<form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="tìm kiếm theo tên" aria-label="Search">
-    <input class="form-control me-2" type="search" placeholder="tìm kiếm theo địa chỉ" aria-label="Search">
+<form class="d-flex" action="/customer?action=search" method="post">
+    <input class="form-control me-2" type="search" name="name" value="${searchName}" placeholder="tìm kiếm theo tên" aria-label="Search">
+    <input class="form-control me-2" type="search" name="address" value="${searchAddress}" placeholder="tìm kiếm theo địa chỉ" aria-label="Search">
     <button class="btn btn-outline-success" type="submit" style="background-color: #b8daff">Tìm</button>
 </form>
 <table  id="tableCustomer" class="table table-striped table-dark">
@@ -64,7 +64,7 @@
             <td><c:out value="${customer.customerType}"/></td>
             <td>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal">
-                    <a href="/customer?action=edit&id=${customer.id}" style="color: white;text-decoration: none">Chỉnh sửa</a>
+                    <a href="/customer?action=edit&id=${customer.id}" style="color: white;text-decoration: none">Sửa</a>
                 </button>
 
             </td>

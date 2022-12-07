@@ -16,6 +16,7 @@ public class CustomerRepository implements ICustomerRepository {
     private final String DELETE_CUSTOMER = "delete from customer where id = ?;";
     private final String UPDATE_CUSTOMER="update customer set `name` = ?,date_of_birth= ?, gender =?, id_card =?,phone_number =?, email =?,address =?, customer_type_id =? where id = ?;";
     private final String SELECT_CUSTOMER_BY_ID = "select id,`name`,date_of_birth,gender,id_card,phone_number,email,address,customer_type_id from customer where id = ?;";
+    private final String SEARCH_CUSTOMER = "select * from customer where `name` like ? and address like ? ;";
     @Override
     public List<Customer> findAllCustomer() {
         List<Customer> customerList = new ArrayList<>();
@@ -90,7 +91,28 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public List<Customer> search(String name, String address) {
-        return null;
+        List<Customer> customerList =new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            PreparedStatement statement = connection.prepareStatement(SEARCH_CUSTOMER);
+            statement.setString(1,"%"+ name +"%");
+            statement.setString(2,"%"+ address +"%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String name1 = resultSet.getString("name");
+                String dateOfBirth = resultSet.getString("date_of_birth");
+                Boolean gender = resultSet.getBoolean("gender");
+                String idCard = resultSet.getString("id_card");
+                String phoneNumber = resultSet.getString("phone_number");
+                String email = resultSet.getString("email");
+                String address1 = resultSet.getString("address");
+                String customerType = resultSet.getString("customer_type_id");
+                customerList.add(new Customer(name1,dateOfBirth,gender,idCard,phoneNumber,email,address1,customerType));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerList;
     }
 
     @Override

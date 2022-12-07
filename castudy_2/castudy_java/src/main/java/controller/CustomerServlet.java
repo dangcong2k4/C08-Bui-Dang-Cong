@@ -33,9 +33,29 @@ public class CustomerServlet extends HttpServlet {
                 break;
             case "delete":
                 delete(request,response);
+                break;
+            case "search":
+                searchCustomer(request,response);
+                break;
             default:
                 listCustomer(request, response);
                 break;
+        }
+    }
+
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        List<Customer> customerList = this.customerSevice.search(name,address);
+        request.setAttribute("customerList",customerList);
+        request.setAttribute("searchName",name);
+        request.setAttribute("searchAddress",address);
+        try {
+            request.getRequestDispatcher("view/customer/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -75,7 +95,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void save(HttpServletRequest request, HttpServletResponse response) {
+    private void save(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("name");
         String dateOfBirth = request.getParameter("date_of_birth");
         boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
@@ -85,19 +105,8 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         String customerTypeId = request.getParameter("customer_type_id");
         Customer customer = new Customer(name,dateOfBirth,gender,idCard,phoneNumber,email,address,customerTypeId);
-        boolean check = customerSevice.add(customer);
-        String mess = "thêm mới Không thành công";
-        if (check){
-            mess = "thêm mới thành công";
-        }
-        request.setAttribute("mess",mess);
-        try {
-            request.getRequestDispatcher("view/customer/create.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        customerSevice.add(customer);
+        response.sendRedirect("/customer");
     }
 
 
