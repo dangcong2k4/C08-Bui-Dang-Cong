@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+</head>
+<body>
+
+<select id="elements" onchange="showValue()">
+    <option value="1" selected>Giá Trị 1</option>
+    <option value="2">Giá Trị 2</option>
+    <option value="3">Giá Trị 3</option>
+</select>
+<div id="results"></div>
+
+<script>
+    let fom1= "<form>\n" +
+        "    <p>Họ Và Tên </p>\n" +
+        "    <input type=\"text\" name=\"name\"> <br>\n" +
+        "    <p>Email </p>\n" +
+        "    <input type=\"email\" name=\"email\">\n" +
+        "    <p>Số Điện Thoại</p>\n" +
+        "    <input type=\"number\" name=\"phone\">\n" +
+        "    <p>Giới Tính </p>\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nam\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nữ\n" +
+        "</form>";
+
+    let fom2= "<form>\n" +
+        "    <p>Họ Và Tên </p>\n" +
+        "    <input type=\"text\" name=\"name\"> <br>\n" +
+        "    <p>Số Điện Thoại</p>\n" +
+        "    <input type=\"number\" name=\"phone\">\n" +
+        "    <p>Giới Tính </p>\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nam\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nữ\n" +
+        "</form>";
+
+    let fom3= "<form>\n" +
+        "    <p>Họ Và Tên </p>\n" +
+        "    <input type=\"text\" name=\"name\"> <br>\n" +
+        "    <p>Email </p>\n" +
+        "    <input type=\"email\" name=\"email\">\n" +
+        "    <p>Giới Tính </p>\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nam\n" +
+        "        <input type=\"radio\" name=\"gender\" > Nữ\n" +
+        "</form>";
+
+    document.getElementById("results").innerHTML =  fom1;
+
+    function showValue(){
+        var ele = elements.value;
+        // document.getElementById("results").innerHTML =  ele;
+        if (ele == 1) {
+            document.getElementById("results").innerHTML =  fom1;
+        }else if (ele ==2) {
+            document.getElementById("results").innerHTML =  fom2;
+        }else {
+            document.getElementById("results").innerHTML =  fom3;
+        }
+    }
+</script>
+
+</body>
+</html>
