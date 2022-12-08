@@ -23,7 +23,12 @@
 <button  type="button" class="btn btn-primary" data-bs-toggle="modal">
     <a href="/facility?action=create" style="color: white;text-decoration: none">Thêm mới dịch vụ</a>
 </button>
-<table class="table table-striped table-dark">
+<form class="d-flex" action="/facility?action=search" method="post">
+    <input class="form-control me-2" type="search" name="name" value="${searchName}" placeholder="tìm kiếm theo tên dịch vụ" aria-label="Search">
+    <input class="form-control me-2" type="search" name="descriptionOther" value="${searchDO}" placeholder="tìm kiếm theo mô tả" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit" style="background-color: #b8daff">Tìm</button>
+</form>
+<table  id="tableFacility" class="table table-striped table-dark">
     <thead>
     <tr>
         <th>STT</th>
@@ -111,6 +116,18 @@
         document.getElementById("deleteId").value=id;
         document.getElementById("deleteName").innerText=name;
     }
+</script>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableFacility').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
 </script>
 </body>
 </html>

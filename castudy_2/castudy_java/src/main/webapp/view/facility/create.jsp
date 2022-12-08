@@ -16,10 +16,11 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
+<h1 class="text-center">Trang thêm mới</h1>
+<h3><a  class="nav-link active" href="/facility"><- Quay lại danh sách</a></h3>
+
 <form class="text-center" method="post">
-
-
-    <select id="elements" onchange="showValue()">
+    <select class="form-control text-center" style="width: 100px ;margin-left: 45%" id="elements" onchange="showValue()">
         <option value="1" selected>Villa</option>
         <option value="2">House</option>
         <option value="3">Room</option>
@@ -31,7 +32,7 @@
     let fom1= "<div class=\"row col-12\">\n" +
         "    <div class=\"row col-4\">\n" +
         "    </div>\n" +
-        "    <div class=\"row col-4\" style='background-color: lightgreen'>\n" +
+        "    <div class=\"row col-4\" style='background-color: #FFEFD5'>\n" +
         "        <div class=\"form-group distance\">\n" +
         "            <label for=\"name\">Tên dịch vụ</label>\n" +
         "            <input type=\"text\" class=\"form-control inputSize\" id=\"name\" name=\"name\" placeholder=\"Tên dịch vụ\">\n" +
@@ -96,7 +97,7 @@
     let fom2= "<div class=\"row col-12\">\n" +
         "    <div class=\"row col-4\">\n" +
         "    </div>\n" +
-        "    <div class=\"row col-4\" style='background-color: lightgreen'>\n" +
+        "    <div class=\"row col-4\" style='background-color: #7FFFD4'>\n" +
 
         "        <div class=\"form-group distance\">\n" +
         "            <label for=\"name\">Tên dịch vụ</label>\n" +

@@ -10,4 +10,12 @@ public interface IFacilityRepository {
     List<Facility> findAllFacility();
     //thêm mới
     boolean add(Facility facility);
+
+    void isDelete(int id);
+
+    List<Facility> search(String name, String descriptionOther);
+
+    boolean isUpdate(Facility facility);
+
+    Facility selectFacility(int id);
 }

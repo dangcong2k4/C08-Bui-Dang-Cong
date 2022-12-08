@@ -19,4 +19,24 @@ public class FacilityService implements IFacilityService {
     public boolean add(Facility facility) {
         return facilityRepository.add(facility);
     }
+
+    @Override
+    public void isDelete(int id) {
+        facilityRepository.isDelete(id);
+    }
+
+    @Override
+    public List<Facility> search(String name, String descriptionOther) {
+        return facilityRepository.search(name,descriptionOther);
+    }
+
+    @Override
+    public boolean isUpdate(Facility facility) {
+        return facilityRepository.isUpdate(facility);
+    }
+
+    @Override
+    public Facility selectFacility(int id) {
+        return facilityRepository.selectFacility(id);
+    }
 }

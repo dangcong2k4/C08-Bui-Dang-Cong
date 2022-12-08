@@ -5,10 +5,7 @@ import model.Facility;
 import repository.BaseRepository;
 import repository.IFacilityRepository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,13 @@ public class FacilityRepository implements IFacilityRepository {
             "value (?,?,?,?,?,?,?,?,?,?);";
     private final String INSERT_ROOM = "insert into facility(`name`, area, cost, max_people, standard_room, description_other_convenience, facility_free, rent_type_id, facility_type_id)\n" +
             "value (?,?,?,?,?,?,?,?,?);";
-
+    private final String DELETE_FACILITY = "delete from facility where id = ?;";
+    private final String SEARCH_FACILITY = "select facility.*,facility_type.`name` as name_type,rent_type.`name` as name_rent from facility \n" +
+            "join facility_type on facility_type.id = facility.facility_type_id\n" +
+            "join rent_type on rent_type.id = facility.rent_type_id"+
+            " where facility.`name` like ? and facility.description_other_convenience like ?;";
+    private final String UPDATE_FACILITY= "update facility set `name` = ?, area =?, cost =?, max_people =?, standard_room =?, description_other_convenience =?, pool_area =?, number_of_floors =?, facility_free =?, rent_type_id =?, facility_type_id =? where id = ?;";
+    private final String SELECT_FACILITY_BY_ID = "select * from facility where id = ?;";
     @Override
     public List<Facility> findAllFacility() {
         List<Facility> facilityList = new ArrayList<>();
@@ -103,5 +106,101 @@ public class FacilityRepository implements IFacilityRepository {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public void isDelete(int id) {
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            CallableStatement callableStatement = connection.prepareCall(DELETE_FACILITY);
+            callableStatement.setInt(1,id);
+            callableStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Facility> search(String name, String descriptionOther) {
+        List<Facility> facilityList = new ArrayList<>();
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            PreparedStatement statement = connection.prepareStatement(SEARCH_FACILITY);
+            statement.setString(1,"%"+ name + "%" );
+            statement.setString(2,"%"+ descriptionOther + "%" );
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String name1 = resultSet.getString("name");
+                int area = Integer.parseInt(resultSet.getString("area"));
+                double cost = Double.parseDouble(resultSet.getString("cost"));
+                int maxPeople = Integer.parseInt(resultSet.getString("max_people"));
+                String standardRoom = resultSet.getString("standard_room");
+                String descriptionOther1 = resultSet.getString("description_other_convenience");
+                Double poolArea = resultSet.getDouble("pool_area");
+                Integer numberOfFloors = resultSet.getInt("number_of_floors");
+                String facilityFree = resultSet.getString("facility_free");
+                String rentType = resultSet.getString("name_rent");
+                String facilityType = resultSet.getString("name_type");
+                facilityList.add(new Facility(name1,area,cost,maxPeople,standardRoom,descriptionOther1,poolArea,numberOfFloors,facilityFree,rentType,facilityType));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return facilityList;
+    }
+
+    @Override
+    public boolean isUpdate(Facility facility) {
+        boolean rowUpdated = false;
+        Connection connection = BaseRepository.getConnectDB();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_FACILITY);
+            preparedStatement.setString(1, facility.getName());
+            preparedStatement.setInt(2, facility.getArea());
+            preparedStatement.setDouble(3, facility.getCost());
+            preparedStatement.setInt(4, facility.getMaxPeople());
+            preparedStatement.setString(5, facility.getStandardRoom());
+            preparedStatement.setString(6, facility.getDescriptionOther());
+            preparedStatement.setDouble(7, facility.getPoolArea());
+            preparedStatement.setInt(8, facility.getNumberOfFloors());
+            preparedStatement.setString(9, facility.getFacilityFree());
+            preparedStatement.setString(10, facility.getRentType());
+            preparedStatement.setString(11, facility.getFacilityType());
+
+            preparedStatement.setInt(12, facility.getId());
+            rowUpdated = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowUpdated;
+    }
+
+    @Override
+    public Facility selectFacility(int id) {
+        Facility facility = null;
+
+        try(Connection connection = BaseRepository.getConnectDB();
+            PreparedStatement statement =connection.prepareStatement(SELECT_FACILITY_BY_ID);) {
+            statement.setInt(1,id);
+            System.out.println(statement);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                String name = rs.getString("name");
+                int area = Integer.parseInt(rs.getString("area"));
+                double cost = Double.parseDouble(rs.getString("cost"));
+                int maxPeople = Integer.parseInt(rs.getString("max_people"));
+                String standardRoom = rs.getString("standard_room");
+                String descriptionOther1 = rs.getString("description_other_convenience");
+                Double poolArea = rs.getDouble("pool_area");
+                Integer numberOfFloors = rs.getInt("number_of_floors");
+                String facilityFree = rs.getString("facility_free");
+                String rentType = rs.getString("rent_type_id");
+                String facilityType = rs.getString("facility_type_id");
+                facility = new Facility(id,name,area,cost,maxPeople,standardRoom,descriptionOther1,poolArea,numberOfFloors,facilityFree,rentType,facilityType);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return facility;
     }
 }
